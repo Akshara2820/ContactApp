@@ -14,7 +14,7 @@ import Icon from 'react-native-vector-icons/Entypo';
 
 const App = () => {
   const [contacts, setContacts] = useState([]);
-  // console.log(contacts, 'ffff');
+
 
   const getPermission = () => {
     PermissionsAndroid.request(PermissionsAndroid.PERMISSIONS.READ_CONTACTS, {
@@ -25,8 +25,6 @@ const App = () => {
       if (res === 'granted') {
         Contacts.getAll()
           .then(con => {
-            // work with contacts
-            // console.log(con, 'nnn');
             setContacts(con);
           })
           .catch(e => {
@@ -47,7 +45,7 @@ const App = () => {
       <FlatList
         data={contacts}
         renderItem={({item}) => {
-          // console.log(item.displayName, 'POPOPOO');
+      
           return (
             <View
               style={{
